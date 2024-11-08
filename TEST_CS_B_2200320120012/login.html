@@ -1,26 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LOGIN </title>
-</head>
-<body>
-    <form action="">
-        <table>
-            <tr>
-                <td>Username</td>
-                <td><input type="text"></td>
-            </tr>
-            <tr>
-                <td>Password</td>
-                <td><input type="text"></td>
-            </tr>
-            
-        </table>
-        <input type="submit" value="Register">
-        <input type="reset" value="Reset ">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        .container{
+            border: 2px solid black;
+            padding: 30px;
+            width: 300px;
+            height: 200px;
+            margin-left: 300px;
+            margin-top: 150px;
+        }
+        h1{
+            text-align: center;
+        }
+
+      .error {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+    <form id="loginForm">
+        <h1>LOGIN</h1>
+      Userid &nbsp; &nbsp; &nbsp;<input type="text" id="userId" placeholder="userId" required />
+      <br /><br>
+      Password &nbsp;<input type="password" id="password" placeholder="password" required />
+      <br /><br>
+      <input type="submit" value="submit" />
+      <p id="error" class="error" style="display: none">
+        Invalid userId or password
+      </p>
     </form>
-    
-</body>
-</html>
+    </div>
+
+    <script>
+        document
+          .getElementById("loginForm")
+          .addEventListener("submit", function (event) {
+            event.preventDefault();
+  
+            const userId = document.getElementById("userId").value;
+            const password = document.getElementById("password").value;
+            const errorMessage = document.getElementById("error");
+  
+            if (userId === "admin" && password === "admin") {
+              window.location.href = "whether.html";
+            } else {
+              errorMessage.style.display = "block";
+            }
+          });
+      </script>
+    </body>
+  </html>
